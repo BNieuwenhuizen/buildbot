@@ -268,6 +268,8 @@ class Console extends Controller
         if  buildset? and buildset.sourcestamps?
             for sourcestamp in buildset.sourcestamps
                 change = @changesBySSID[sourcestamp.ssid]
+                if change?
+                    break
 
         if not change? and build.properties?.got_revision?
             rev = build.properties.got_revision[0]
